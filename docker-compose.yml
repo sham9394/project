@@ -1,0 +1,20 @@
+
+networks:
+  my-network:
+    driver: bridge
+services:
+  flask-app:
+    build: ./flask-app
+    container_name: flask-container
+    ports:
+      - "5000"
+    networks:
+      - my-network
+
+  node-app:
+    build: ./node-app
+    container_name: node-container
+    ports:
+      - "3000"
+    networks:
+      - my-network
